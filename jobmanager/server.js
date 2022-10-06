@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
   res.send('Winter is Coming!')
 })
 
-app.use('/api/login', require('./routes/login'));
+app.use('/api/login', require('./server/routes/login'));
 
 
 app.listen(port, () => {
