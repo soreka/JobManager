@@ -1,14 +1,13 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 3000;
 
 app.get('/', (req, res) => {
-  res.send('Winter is Coming!')
-})
+  res.send('Server is Running!');
+});
 
 app.use('/api/login', require('./server/routes/login'));
 
-
 app.listen(port, () => {
-  console.log(`listening on port ${port}`)
-})
+  console.log(`listening on port ${port}`);
+});
