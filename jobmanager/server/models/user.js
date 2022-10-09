@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
+require('dotenv').config();
+const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
 
 const userSchema = new Schema({
   name: String,
@@ -13,9 +13,9 @@ const userSchema = new Schema({
   linkedin: String,
   status: String,
   role: String,
-  jobs: [{ type: Schema.Types.ObjectId, ref: "Job" }],
+  jobs: [{ type: Schema.Types.ObjectId, ref: 'Job' }],
   isVerified: Boolean,
-  notifications: []
+  notifications: [],
 });
 
 userSchema.methods.generateAuthToken = function () {
@@ -25,6 +25,6 @@ userSchema.methods.generateAuthToken = function () {
   );
 };
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
